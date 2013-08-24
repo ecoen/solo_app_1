@@ -1,2 +1,6 @@
-<h1>MainPages#home</h1>
-<p>Find me in app/views/main_pages/home.html.erb</p>
+<% provide(:title, 'Home') %>
+    <title>Solo App | <%= yield(:title) %></title>
+	<h1>Solo App</h1>
+	<p>
+	  This is the home page for my first solo ruby on rails app
+	</p>

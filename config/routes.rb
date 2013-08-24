@@ -1,4 +1,5 @@
 SoloApp1::Application.routes.draw do
+  get "movie_pages/movie_listing"
   get "main_pages/home"
   resources :users
 
