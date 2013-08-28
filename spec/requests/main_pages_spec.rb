@@ -8,11 +8,17 @@ describe "Main pages" do
       visit '/main_pages/home'
       expect(page).to have_content('Solo App')
     end
-  
-	 it "should have the title 'Home'" do
-	      visit '/main_pages/home'
-	      expect(page).to have_title("Solo App | Home")
+
+    it "should have the base title" do
+      visit '/main_pages/home'
+      expect(page).to have_title("Ruby on Rails Solo App")
     end
+
+    it "should not have a custom page title" do
+      visit '/main_pages/home'
+      expect(page).not_to have_title('| Home')
+    end
+
   end
 end
 
