@@ -1,6 +1,10 @@
 SoloApp1::Application.routes.draw do
-  get "movie_pages/movie_listing"
-  get "main_pages/home"
+  get "users/new"
+  root  'main_pages#home'
+  match '/movie_listing', to: 'movie_pages#movie_listing', via: 'get'
+  match '/contact', to: 'main_pages#contact', via: 'get'
+  match '/signup',  to: 'users#new',            via: 'get'
+  
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,6 +1,13 @@
+<title>Solo App | <%= yield(:title) %></title>
+<div class="center hero-unit">
+  <h1>Welcome to the Sample App</h1>
 
-    <title>Solo App | <%= yield(:title) %></title>
-	<h1>Solo App</h1>
-	<p>
-	  This is the home page for my first solo ruby on rails app
-	</p>
+  <h2>
+    This is the home page for the
+    solo application.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>

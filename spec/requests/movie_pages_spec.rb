@@ -1,17 +1,12 @@
 require 'spec_helper'
 
 describe "MoviePages" do
+  subject{page}
   
   describe "MovieListing page" do
+    before {visit movie_listing_path}
 
-    it "should have the content 'Movies'" do
-      visit '/movie_pages/movie_listing'
-      expect(page).to have_content('Movies')
-    end
-
-     it "should have the title 'Movie'" do
-	      visit '/movie_pages/movie_listing'
-	      expect(page).to have_title("Solo App | Movies")
-    end
+    it { should have_content('Movies')}
+    it { should have_title(full_title('Movies'))}
   end
 end
