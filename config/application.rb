@@ -9,6 +9,12 @@ Bundler.require(:default, Rails.env)
 module SoloApp1
   class Application < Rails::Application
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    # These are the available options with their default value:
+    config.opal.method_missing      = true
+    config.opal.optimized_operators = true
+    config.opal.arity_check         = false
+    config.opal.const_missing       = true
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

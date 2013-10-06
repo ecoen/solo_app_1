@@ -71,4 +71,14 @@ describe Movie do
     it { should_not be_valid }
   end
 
+  describe "email address with mixed case" do
+    let(:mixed_case_rating) { "r" }
+
+    it "should be saved as all upper-case" do
+      @movie.rating = mixed_case_rating
+      @movie.save
+      expect(@movie.reload.rating).to eq "R"
+    end
+  end
+
 end
