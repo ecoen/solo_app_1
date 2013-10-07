@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)    # Not the final implementation!
     if @movie.save
+      flash[:success] = "Welcome to the Sample App!"
       redirect_to @movie
     else
       render 'new'

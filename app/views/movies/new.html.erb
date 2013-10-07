@@ -2,8 +2,10 @@
 <h1>Add Movie</h1>
 
 <div class="row" style="align:center">
+
   <div class="span6 offset3">
     <%= form_for(@movie) do |f| %>
+      <%= render 'shared/error_messages', :layout => 'error_messages', object: f.object %>
       
       <%= f.label :title %>
       <%= f.text_field :title %>
