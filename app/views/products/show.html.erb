@@ -1,0 +1,21 @@
+<% provide(:title, @product.name) %>
+<h1><%= @product.name %></h1>
+<p id="notice"><%= notice %></p>
+<p>
+	<strong>Name:</strong>
+		<%= @product.name %>
+</p>
+<p>
+	<strong>Price:</strong>
+	<%= @product.price %>
+</p>
+<p>
+	<strong>Number Available:</strong>
+	<%= @product.numberavailable %>
+</p>
+<p>
+	<strong>Image URL:</strong>
+	<%= @product.imageurl %>
+</p>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

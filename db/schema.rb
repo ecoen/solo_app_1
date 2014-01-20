@@ -11,12 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902191304) do
+ActiveRecord::Schema.define(version: 20140112220906) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
     t.string   "rating"
     t.string   "director"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "quantity"
+    t.decimal  "subtotal"
+    t.decimal  "tax"
+    t.decimal  "total"
+    t.date     "shipdate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "product_id"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.integer  "numberavailable"
+    t.string   "imageurl"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +48,7 @@ ActiveRecord::Schema.define(version: 20130902191304) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
 end

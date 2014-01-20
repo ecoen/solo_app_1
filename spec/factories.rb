@@ -9,8 +9,15 @@ end
 
 FactoryGirl.define do
 	factory :movie do
-		title	"Cookies Fortune"
+		sequence(:title)  do |n| 
+      result = "AAA"
+      n.times {result.succ!}
+      result
+    end
 		director	"Ron Howard"
 		rating	"R"
 	end
 end
+
+ 
+

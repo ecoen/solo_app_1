@@ -1,13 +1,19 @@
 SoloApp1::Application.routes.draw do
-  
+
   root  'main_pages#home'
   match '/movie_listing', to: 'movie_pages#movie_listing', via: 'get'
   match '/contact', to: 'main_pages#contact', via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/addmovie', to: 'movies#new', via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/users' , to: 'users#index', via: 'get'
+  match '/products' , to: 'products#index', via: 'get'
   
   resources :users
   resources :movies
+  resources :products
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

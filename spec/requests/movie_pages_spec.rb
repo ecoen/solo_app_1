@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe "MoviePages" do
   subject{page}
+  let(:movie) { FactoryGirl.create(:movie) }
 
   describe "Movie page" do
-  let(:movie) { FactoryGirl.create(:movie) }
+  
   before { visit movie_path(movie) }
 
   it { should have_content(movie.title) }
@@ -33,7 +34,22 @@ describe "MoviePages" do
       it "should create a movie" do
         expect { click_button submit }.to change(Movie, :count).by(1)
       end
+
     end
   end
 
+  describe 'destroy' do
+    it "should delete movie" do
+      before { visit movie_path }
+      expect { delete_movie_path(movie) }
+        to change(Movie, :count).by(-1)
+    end
+  end
+
+  describe 'visit edit movie path' do
+    it "should display movie" do
+      before { visit edit_movie_path(movie) }
+      expect { current_path.should eq(edit_movie_path(movie)) }
+    end
+  end
 end

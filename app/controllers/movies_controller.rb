@@ -4,8 +4,19 @@ class MoviesController < ApplicationController
   	@movie = Movie.find(params[:id])
   end
 
-  def new
+  def new  
   	@movie = Movie.new
+  end
+
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    @movie.update_attributes(movie_params)
+    flash[:success] = "Movie updated"
+    redirect_to @movie
   end
 
   def create
@@ -16,6 +27,15 @@ class MoviesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def index
+    @movies = Movie.all
+  end
+
+  def destroy
+    Movie.find(params[:id]).destroy
+    redirect_to movies_path
   end
 
   private

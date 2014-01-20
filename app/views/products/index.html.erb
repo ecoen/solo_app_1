@@ -1,0 +1,29 @@
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th align="left" style="padding:10px">Name</th>
+      <th align="left" style="padding:10px">Price</th>
+      <th align="left" style="padding:10px">Quantity</th>
+      <th align="left" style="padding:10px">Image</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td style="font-weight:bold" padding="10px"><%= product.name %></td>
+        <td padding="10px" align="center"><%= product.price %></td>
+        <td padding="10px" align="center"><%= product.numberavailable %></td>
+        <td padding="10px" align="center"><%= link_to image_tag(product.imageurl, alt: "image")%></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
