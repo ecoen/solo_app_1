@@ -1,5 +1,6 @@
 SoloApp1::Application.routes.draw do
 
+  get "shop/index"
   root  'main_pages#home'
   match '/movie_listing', to: 'movie_pages#movie_listing', via: 'get'
   match '/contact', to: 'main_pages#contact', via: 'get'
@@ -9,10 +10,16 @@ SoloApp1::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/users' , to: 'users#index', via: 'get'
   match '/products' , to: 'products#index', via: 'get'
-  
+  #match '/shop/add_to_cart/:product_id', to: 'shop#add_to_cart#product_id', via: 'get', as: 'add_to_cart'
+  match '/shop/add_to_cart', to: 'shop#add_to_cart', via: 'get'
+  match '/shop', to: 'shop#index', via:'get'
+  match '/clear_cart', to: 'shop#clear_cart', via: 'get'
+
+
   resources :users
   resources :movies
   resources :products
+  resources :carts
   resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

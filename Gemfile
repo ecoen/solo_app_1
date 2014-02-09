@@ -8,7 +8,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'opal-rails'
 gem 'pry', :group => :development
-gem 'faker', '1.1.2'
+gem 'faker', '1.2.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'

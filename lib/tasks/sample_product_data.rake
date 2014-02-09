@@ -4,18 +4,36 @@ namespace :db do
     Product.create!(name: "Soccer Ball",
                  price: 10.99,
                  numberavailable: 10,
-                 imageurl: "http://test/image.jpeg")
+                 imageurl: "image.jpeg",
+                 description: "A pink and black size 8 soccer ball")
     10.times do |n|
-      name  = Faker::Name.name
+      name  = Faker::Commerce.product_name
       price = 10.99 + n
       numberavailable = 10 + n
-      imageurl  = "http://test.image#{n}.jpeg"
+      imageurl  = "image#{n}.png"
+      description = Faker::Lorem.sentence(rand(5..8))
       Product.create!(name: name,
                    price: price,
                    numberavailable: numberavailable,
-                   imageurl: imageurl)
+                   imageurl: imageurl,
+                   description: description)
     end
   end
+
+  task populate: :environment do
+    Movie.create!(title: "Zombieland",
+                  rating: "R",
+                  director: "Robert Altman")
+    20.times do |n|
+      title = "Movie #{n}"
+      rating = "PG"
+      director = Faker::Name.name
+      Movie.create!(title: title,
+                    rating: rating,
+                    director: director)
+    end
+  end
+
   task populate: :environment do
     User.create!(name: "Example User",
                  email: "example@railstutorial.org",

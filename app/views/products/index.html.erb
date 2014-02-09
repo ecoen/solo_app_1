@@ -1,5 +1,7 @@
-<h1>Products</h1>
+<%= stylesheet_link_tag 'scaffold', 'store' %>
 
+<h1>Products</h1>
+<div id="product-list" width="700px">
 <table>
   <thead>
     <tr>
@@ -12,17 +14,21 @@
 
   <tbody>
     <% @products.each do |product| %>
-      <tr>
-        <td style="font-weight:bold" padding="10px"><%= product.name %></td>
-        <td padding="10px" align="center"><%= product.price %></td>
-        <td padding="10px" align="center"><%= product.numberavailable %></td>
-        <td padding="10px" align="center"><%= link_to image_tag(product.imageurl, alt: "image")%></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+      <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+        <td><span class="list-title"><%= product.name %></span></td>
+        <td><span class="list-title"><%= product.price %></span></td>
+        <td><span class="list-title"><%= product.numberavailable %></span></td>
+        <td width="100px"><span class="list-title"><%= image_tag(product.imageurl, alt: "image")%></span></td>
+        <td>
+          <%= link_to 'Show', product %><br>
+          <%= link_to 'Edit', edit_product_path(product) %><br>
+          <%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
