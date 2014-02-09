@@ -5,7 +5,9 @@ class ShopController < ApplicationController
 
  def add_to_cart
   @cart = get_cart
-  @cart.add_to_cart(Product.find(params[:id]))
+  @product = Product.find(params[:id])
+  @product.imageurl = nil
+  @cart.add_to_cart(@product)
 end
 
 def get_cart

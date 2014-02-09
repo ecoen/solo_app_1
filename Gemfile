@@ -9,6 +9,8 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'opal-rails'
 gem 'pry', :group => :development
 gem 'faker', '1.2.0'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
