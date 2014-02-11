@@ -10,7 +10,11 @@ class Cart
   end
 
   def clear
-  @items.clear
-end
+   @items.clear
+  end
+
+  def get_items
+  	@items
+  end
 
 end
